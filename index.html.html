@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page | Postal Travel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .banner-header {
+      background-image: url('banner.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .banner-logo {
+      position: center;
+      top: 5rem;
+      left: 2.5rem;
+      height: 150px;
+      max-width: 30vw;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #FF6200;
+	  font-size: 1.9rem;
+    }
+	
+	h1 {
+      color: #000000;
+      font-size: 1.1rem;
+    }
+
+    .form-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-section h2 {
+    text-align: center;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn {
+      background-color: #FF6200;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #e05600;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .banner-logo {
+        position: static;
+        display: block;
+        margin: 0 auto 1rem auto;
+        height: 60px;
+      }
+
+      .banner-header {
+        height: auto;
+        padding: 2rem 0;
+      }
+
+      .banner-overlay {
+        padding: 1.5rem;
+        text-align: center;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="banner-header">
+    <div class="banner-overlay">
+      <img src="logo.png" alt="Postal Travel Logo" class="banner-logo">
+    </div>
+  </header>
+  
+<div style="width: 100%;">
+ 
+</div>
+  
+  <section class="form-section">
+    <h2>Cotizador Postal Travel</h2>
+    <form action="#" method="POST" id="paqueteForm">
+		<h1>Nombre del cliente completo</h1>
+	    <input type="text" name="nombre" id="nombre" placeholder required />
+		<h1>Número de WhatsApp</h1>
+        <input type="tel" name="telefono" id="telefono" "Número de WhatsApp" placeholder required />
+		<h1>Nombre del  aliado comercial</h1>
+        <input type="text" name="aliado" id="aliado" placeholder required />
+      </div>
+	  
+	  <h2>Datos del viaje</h2>
+      <div>
+		<h1>Destino a donde viajar<h1>
+        <input type="text" name="destino" id="destino" required />
+        <h1>Viajeros adultos</h1>
+		<input type="number" name="adultos" id="adultos" placeholder required /> 
+		<h1>Viajeros menores y que edad</h1>
+		<input type="text" name="menores" id="menores" placeholder required />
+	  </div>
+      
+	  <h2>Fecha del viaje</h2>
+	  <div>
+		<h1>Fecha estimada o confirmada</h1>
+        <input type="text" name="fecha" id="fecha" placeholder required />
+		<h1>Días que durará en el destino</h1>
+        <input type="text" name="dias" id="dias" placeholder required />
+      </div>
+	  
+	  <h2>Servicios</h2>
+	  <div>
+	  <h1>Detalle que es lo que quieres hacer en tu destino</h1>
+	  <input type="text" name="servicio" id="servicio" placeholder required />
+      </div>
+	  
+	  <div>
+        <label><input type="checkbox" id="aceptoWsp" /> Acepto recibir información por WhatsApp</label>
+      </div>
+	  
+	  <div>
+        <button type="submit" class="btn">Enviar solicitud</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    Postal Travel © 2025 - Mérida, Yucatán
+  </footer>
+
+<script>
+  document.getElementById("paqueteForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const datos = {
+      nombre: document.getElementById("nombre").value,
+      telefono: document.getElementById("telefono").value,
+      aliado: document.getElementById("aliado").value,
+      destino: document.getElementById("destino").value,
+      adultos: document.getElementById("adultos").value,
+      menores: document.getElementById("menores").value,
+      fecha: document.getElementById("fecha").value,
+      dias: document.getElementById("dias").value,
+      servicio: document.getElementById("servicio").value,
+      aceptaWsp: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbyPIjBOeAZUZ1hzS5YdHDCJnmKb3MMSC0ys8SwSVAtAB_A5MehA_y1dFNsPS7P3K8EZ/exec", { 
+      method: "POST",
+      body: JSON.stringify(datos),
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(r => r.text())
+    .then(responseText => console.log(responseText))
+    .catch(err => console.error("Error en fetch:", err));
+
+    const texto = `¡Hola! Quiero un viaje con estos detalles:
+Nombre: ${datos.nombre}
+WhatsApp: ${datos.telefono}
+Aliado: ${datos.aliado}
+Destino: ${datos.destino}
+Adultos: ${datos.adultos}
+Menores: ${datos.menores}
+Fecha del viaje: ${datos.fecha}
+Días en el destino: ${datos.dias}
+Planes: ${datos.servicio}
+¿Acepta info por WhatsApp?: ${datos.aceptaWsp}`;
+
+    const mensajeCodificado = encodeURIComponent(texto).replace(/%0A/g, '%0D%0A');
+    const numeroWhatsApp = "5215569622506";
+    const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensajeCodificado}`;
+
+    window.location.href = url;
+  });
+</script>
+
+
+</body>
+</html>
