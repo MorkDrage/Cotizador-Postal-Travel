@@ -196,14 +196,14 @@
       aceptaWsp: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbyPIjBOeAZUZ1hzS5YdHDCJnmKb3MMSC0ys8SwSVAtAB_A5MehA_y1dFNsPS7P3K8EZ/exec", { 
+    fetch("https://sheetdb.io/api/v1/qptfxxml1qz1y", { 
       method: "POST",
       body: JSON.stringify(datos),
       headers: { "Content-Type": "application/json" }
     })
-    .then(r => r.text())
-    .then(responseText => console.log(responseText))
-    .catch(err => console.error("Error en fetch:", err));
+    .then(r => r.json())
+    .then(data => console.log("Guardado en SheetDB:", data))
+    .catch(err => console.error("Error:", err));
 
     const texto = `¡Hola! Quiero un viaje con estos detalles:
 Nombre: ${datos.nombre}
