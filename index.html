@@ -7,11 +7,11 @@
   <title>Landing Page | Postal Travel</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: Avenir light, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff;
-      color: #333;
+      background-color: #f9f8f8;
+      color: #0d2240;
     }
 
     .banner-header {
@@ -42,43 +42,73 @@
     }
 
     h2 {
-      color: #FF6200;
-	  font-size: 1.9rem;
+    font-family: Avenir, sans-serif;
+    color: #0d2240;
+    font-size: 1.9rem;
+    text-align: center;
     }
 	
 	h1 {
-      color: #000000;
-      font-size: 1.1rem;
+    color: #0d2240;
+    font-size: 1rem;
+    margin: 0.5rem 0 0.2rem;
     }
 
-    .form-section form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .form-section {
+    padding: 2rem 1rem;
+    max-width: 960px;
+    margin: auto;
     }
 
     .form-section h2 {
     text-align: center;
     }
 
-    input, textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+	
+	.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .form-group {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+	input, textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff6e6;
+    font-size: 1rem;
     }
 
-    .btn {
-      background-color: #FF6200;
-      color: white;
-      border: none;
-      padding: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
 
-    .btn:hover {
-      background-color: #e05600;
-    }
+  .btn {
+    background-color: #fe4e4e;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #0d2240;
+  }
 
     .hidden {
       display: none;
@@ -116,7 +146,7 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #777;
+      color: #0d2240;
     }
   </style>
 </head>
@@ -132,54 +162,69 @@
 </div>
   
   <section class="form-section">
-    <h2>Cotizador Postal Travel</h2>
-    <form action="#" method="POST" id="paqueteForm">
-		<h1>Nombre del cliente completo</h1>
-	    <input type="text" name="nombre" id="nombre" placeholder required />
-		<h1>Número de WhatsApp</h1>
-        <input type="tel" name="telefono" id="telefono" "Número de WhatsApp" placeholder required />
-		<h1>Nombre del  aliado comercial</h1>
-        <input type="text" name="aliado" id="aliado" placeholder required />
-      </div>
-	  
-	  <h2>Datos del viaje</h2>
-      <div>
-		<h1>Destino a donde viajar<h1>
-        <input type="text" name="destino" id="destino" required />
-        <h1>Viajeros adultos</h1>
-		<input type="number" name="adultos" id="adultos" placeholder required /> 
-		<h1>Viajeros menores y que edad</h1>
-		<input type="text" name="menores" id="menores" placeholder required />
-	  </div>
-      
-	  <h2>Fecha del viaje</h2>
-	  <div>
-		<h1>Fecha estimada o confirmada</h1>
-        <input type="text" name="fecha" id="fecha" placeholder required />
-		<h1>Días que durará en el destino</h1>
-        <input type="text" name="dias" id="dias" placeholder required />
-      </div>
-	  
-	  <h2>Servicios</h2>
-	  <div>
-	  <h1>Detalle que es lo que quieres hacer en tu destino</h1>
-	  <input type="text" name="servicio" id="servicio" placeholder required />
-      </div>
-	  
-	  <div>
-        <label><input type="checkbox" id="aceptoWsp" /> Acepto recibir información por WhatsApp</label>
-      </div>
-	  
-	  <div>
-        <button type="submit" class="btn">Enviar solicitud</button>
-      </div>
-    </form>
+    <h2>COTIZADOR</h2>
+<form action="#" method="POST" id="paqueteForm">
+
+  <h2>Nombre del Viajero</h2>
+  <div class="form-row">
+    <div class="form-group">
+      <h1>Nombre y Apellido</h1>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required />
+    </div>
+    <div class="form-group">
+      <h1>Número de WhatsApp</h1>
+      <input type="tel" name="telefono" id="telefono" placeholder="Preferible que tenga WhatsApp" required />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h1>Nombre del Aliado Comercial</h1>
+    <input type="text" name="aliado" id="aliado" placeholder="" required />
+  </div>
+
+  <h2>Datos del Viaje</h2>
+<div class="form-row">
+  <div class="form-group">
+    <h1>Destino</h1>
+    <input type="text" name="destino" id="destino" placeholder="¿A dónde viajar?" required />
+  </div>
+  <div class="form-group">
+    <h1># de Viajeros</h1>
+    <input type="text" name="viajeros" id="viajeros" placeholder="Adultos / menores (edad de los menores)" required />
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group">
+    <h1>Fecha de Viaje</h1>
+    <input type="text" name="fecha" id="fecha" placeholder="Fecha confirmada o estimada" required />
+  </div>
+  <div class="form-group">
+    <h1>Días para viajar</h1>
+    <input type="text" name="dias" id="dias" placeholder="¿Cuántos días planeas viajar?" required />
+  </div>
+</div>
+
+  <h2>Servicios</h2>
+  <div class="form-group">
+    <h1>¿Qué tienes planeado?</h1>
+    <textarea name="servicio" id="servicio" placeholder="Vuelos, hotel, actividades, traslados, etc." required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label><input type="checkbox" id="aceptoWsp" /> Acepto recibir información por WhatsApp</label>
+  </div>
+
+  <div>
+    <button type="submit" class="btn">Enviar solicitud</button>
+  </div>
+</form>
   </section>
 
   <footer>
     Postal Travel © 2025 - Mérida, Yucatán
   </footer>
-
+	
 <script>
   document.getElementById("paqueteForm").addEventListener("submit", function(e) {
     e.preventDefault();
