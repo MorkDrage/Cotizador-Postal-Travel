@@ -40,8 +40,9 @@
     }
 
     .banner-logo {
-      height: 120px;
-      max-width: 90%;
+  height: 120px;
+  max-width: 90%;
+  transition: all 0.3s ease;
     }
 
     .conecta {
@@ -160,22 +161,24 @@ h3 {
 }
 .banner-desktop {
   width: 33.33%;
+  display: block !important;
 }
 
 .banner-mobile {
-  display: none;
+  display: none !important;
   width: 100%;
 }
 
 @media (max-width: 768px) {
   .banner-desktop {
-    display: none;
+    display: none !important;
   }
   .banner-mobile {
-    display: block;
+    display: block !important;
   }
   .banner-logo {
-    height: 80px;
+    height: 60px;
+    max-width: 70%;
   }
 }
 </style>
