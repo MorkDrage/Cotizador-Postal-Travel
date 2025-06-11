@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Landing Page | Postal Travel</title>
@@ -14,24 +15,63 @@
     }
 
     .banner-header {
-      background-image: url('banner.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 250px;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
       position: relative;
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-combined {
+      display: flex;
+      width: 100%;
+    }
+
+    .banner-combined img {
+      width: 33.33%;
+      height: auto;
+      display: block;
+    }
+
+    .banner-logo-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
     }
 
     .banner-logo {
-      position: center;
-      top: 5rem;
-      left: 2.5rem;
-      height: 150px;
-      max-width: 30vw;
+      height: 120px;
+      max-width: 90%;
+    }
+
+    .conecta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .conecta-text {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+    .conecta-text h2 {
+      font-size: 2rem;
+      color: #0d2240;
+      line-height: 1.3;
+    }
+    .conecta-text h2 span {
+      color: #fe4e4e;
+    }
+    .conecta-img {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .conecta-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
     }
 
     section {
@@ -40,106 +80,37 @@
       margin: auto;
     }
 
-    h2 {
-    font-family: Avenir, sans-serif;
-    color: #0d2240;
-    font-size: 1.9rem;
-    text-align: center;
+    h2 { font-size: 1.9rem; text-align: center; }
+    h3 { font-size: 1.4rem; text-align: center; }
+    h1 { font-size: 1rem; }
+
+    .form-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .form-group {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
     }
-	
-	h1 {
-    color: #0d2240;
-    font-size: 1rem;
-    margin: 0.5rem 0 0.2rem;
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff6e6;
+      font-size: 1rem;
+      font-family: Avenir light, sans-serif;
     }
+    textarea { min-height: 120px; resize: vertical; }
 
-    .form-section {
-    padding: 2rem 1rem;
-    max-width: 960px;
-    margin: auto;
+    .btn {
+      background-color: #fe4e4e;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
     }
-
-    .form-section h2 {
-    text-align: center;
-    }
-
-    form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    }
-	
-	.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .form-group {
-    flex: 1;
-    min-width: 200px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-	input, textarea {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff6e6;
-    font-size: 1rem;
-    }
-
-    textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-
-  .btn {
-    background-color: #fe4e4e;
-    color: white;
-    border: none;
-    padding: 1rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-
-  .btn:hover {
-    background-color: #0d2240;
-  }
-
-    .hidden {
-      display: none;
-    }
-
-    .fade-in {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      .banner-logo {
-        position: static;
-        display: block;
-        margin: 0 auto 1rem auto;
-        height: 60px;
-      }
-
-      .banner-header {
-        height: auto;
-        padding: 2rem 0;
-      }
-
-      .banner-overlay {
-        padding: 1.5rem;
-        text-align: center;
-      }
-    }
+    .btn:hover { background-color: #0d2240; }
 
     footer {
       text-align: center;
@@ -147,24 +118,62 @@
       font-size: 0.9rem;
       color: #0d2240;
     }
+
+    @media (max-width: 768px) {
+      .banner-logo {
+        height: 80px;
+      }
+    }
+  h1 {
+  margin: 0.5rem 0;
+  font-family: Avenir light, sans-serif;
+  color: #0d2240;
+  font-size: 1rem;
+}
+
+h2 {
+  margin: 0.5rem 0;
+  font-family: Anton, sans-serif;
+  color: #0d2240;
+  font-size: 1.9rem;
+  text-align: center;
+}
+
+h3 {
+  margin: 0.5rem 0;
+  font-family: Avenri, sans-serif;
+  color: #0d2240;
+  font-size: 1.4rem;
+  text-align: center;
+}
   </style>
 </head>
 <body>
+
   <header class="banner-header">
-    <div class="banner-overlay">
+    <div class="banner-combined">
+      <img src="banner1.jpg" alt="Banner 1">
+      <img src="banner2.jpg" alt="Banner 2">
+      <img src="banner3.jpg" alt="Banner 3">
+    </div>
+    <div class="banner-logo-container">
       <img src="logo.png" alt="Postal Travel Logo" class="banner-logo">
     </div>
   </header>
-  
-<div style="width: 100%;">
- 
-</div>
+
+  <section class="conecta">
+    <div class="conecta-text">
+      <h2><span>¡Conecta</span> con nosotros y<br>empieza a planear tu<br>próxima aventura!</h2>
+    </div>
+    <div class="conecta-img">
+      <img src="connect-image.jpg" alt="Postal Travel Phone">
+    </div>
+  </section>
   
   <section class="form-section">
-    <h2>COTIZADOR</h2>
+    <h3>COTIZADOR</h3>
 <form action="#" method="POST" id="paqueteForm">
 
-  <h2>Nombre del Viajero</h2>
   <div class="form-row">
     <div class="form-group">
       <h1>Nombre y Apellido</h1>
