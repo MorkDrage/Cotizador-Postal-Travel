@@ -26,9 +26,8 @@
     }
 
     .banner-combined img {
-      width: 33.33%;
-      height: auto;
-      display: block;
+  display: block;
+  height: auto;
     }
 
     .banner-logo-container {
@@ -159,15 +158,36 @@ h3 {
   font-size: 1.9rem;
   text-align: center;
 }
-  </style>
+.banner-desktop {
+  width: 33.33%;
+}
+
+.banner-mobile {
+  display: none;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .banner-desktop {
+    display: none;
+  }
+  .banner-mobile {
+    display: block;
+  }
+  .banner-logo {
+    height: 80px;
+  }
+}
+</style>
 </head>
 <body>
 
   <header class="banner-header">
     <div class="banner-combined">
-      <img src="banner1.jpg" alt="Banner 1">
-      <img src="banner2.jpg" alt="Banner 2">
-      <img src="banner3.jpg" alt="Banner 3">
+  <img src="banner1.jpg" alt="Banner 1" class="banner-desktop">
+  <img src="banner2.jpg" alt="Banner 2" class="banner-desktop">
+  <img src="banner3.jpg" alt="Banner 3" class="banner-desktop">
+  <img src="banner-mobile.jpg" alt="Banner Móvil" class="banner-mobile">
     </div>
     <div class="banner-logo-container">
       <img src="logo.png" alt="Postal Travel Logo" class="banner-logo">
