@@ -236,6 +236,10 @@ h3 {
 </div>
 
   <h3>DATOS DEL VIAJE</h3>
+<div class="form-group">
+  <h1>Origen</h1>
+  <input type="text" name="origen" id="origen" placeholder="¿Desde dónde viajas?" required />
+</div>
 <div class="form-row">
   <div class="form-group">
     <h1>Destino</h1>
@@ -283,6 +287,7 @@ h3 {
     const datos = {
       nombre: document.getElementById("nombre").value,
       telefono: document.getElementById("telefono").value,
+      origen: document.getElementById("origen").value,
       aliado: document.getElementById("aliado").value,
       destino: document.getElementById("destino").value,
       viajeros: document.getElementById("viajeros").value,
@@ -304,6 +309,7 @@ h3 {
     const texto = `¡Hola! Quiero un viaje con estos detalles:
 Nombre: ${datos.nombre}
 WhatsApp: ${datos.telefono}
+Origen: ${datos.origen}
 Aliado: ${datos.aliado}
 Destino: ${datos.destino}
 Viajers: ${datos.viajeros}
