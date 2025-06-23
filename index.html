@@ -287,16 +287,16 @@ h3 {
   document.getElementById("paqueteForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const datos = {
-      NOMBRE: document.getElementById("nombre").value,
-      TELÉFONO: document.getElementById("telefono").value,
-      ORIGEN: document.getElementById("origen").value,
-      ALIADO COMERCIAL: document.getElementById("aliado").value,
-      DESTINO: document.getElementById("destino").value,
-      # DE VIAJEROS: document.getElementById("viajeros").value,
-      FECHA DE SALIDA: document.getElementById("fecha").value,
-      # DE DÍAS: document.getElementById("dias").value,
-      DETALLES DE LOS SERVICIOS: document.getElementById("servicio").value,
-      ACEPTA WSP: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
+      nombre: document.getElementById("nombre").value,
+      telefono: document.getElementById("telefono").value,
+      origen: document.getElementById("origen").value,
+      aliado: document.getElementById("aliado").value,
+      destino: document.getElementById("destino").value,
+      viajeros: document.getElementById("viajeros").value,
+      fecha: document.getElementById("fecha").value,
+      dias: document.getElementById("dias").value,
+      servicios: document.getElementById("servicio").value,
+      aceptawsp: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
     };
 
     fetch("https://sheetdb.io/api/v1/qptfxxml1qz1y", { 
