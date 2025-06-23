@@ -287,16 +287,16 @@ h3 {
   document.getElementById("paqueteForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const datos = {
-      nombre: document.getElementById("nombre").value,
-      telefono: document.getElementById("telefono").value,
-      origen: document.getElementById("origen").value,
-      aliado: document.getElementById("aliado").value,
-      destino: document.getElementById("destino").value,
-      viajeros: document.getElementById("viajeros").value,
-      fecha: document.getElementById("fecha").value,
-      dias: document.getElementById("dias").value,
-      servicio: document.getElementById("servicio").value,
-      aceptaWsp: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
+      NOMBRE: document.getElementById("nombre").value,
+      TELÉFONO: document.getElementById("telefono").value,
+      ORIGEN: document.getElementById("origen").value,
+      ALIADO COMERCIAL: document.getElementById("aliado").value,
+      DESTINO: document.getElementById("destino").value,
+      # DE VIAJEROS: document.getElementById("viajeros").value,
+      FECHA DE SALIDA: document.getElementById("fecha").value,
+      # DE DÍAS: document.getElementById("dias").value,
+      DETALLES DE LOS SERVICIOS: document.getElementById("servicio").value,
+      ACEPTA WSP: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
     };
 
     fetch("https://sheetdb.io/api/v1/qptfxxml1qz1y", { 
@@ -314,7 +314,7 @@ WhatsApp: ${datos.telefono}
 Origen: ${datos.origen}
 Aliado: ${datos.aliado}
 Destino: ${datos.destino}
-Viajers: ${datos.viajeros}
+Viajeros: ${datos.viajeros}
 Fecha del viaje: ${datos.fecha}
 Días en el destino: ${datos.dias}
 Planes: ${datos.servicio}
