@@ -285,30 +285,42 @@ h3 {
 	
 <script>
   document.getElementById("paqueteForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const datos = {
-      nombre: document.getElementById("nombre").value,
-      telefono: document.getElementById("telefono").value,
-      aliado: document.getElementById("aliado").value,
-      origen: document.getElementById("origen").value,
-      destino: document.getElementById("destino").value,
-      viajeros: document.getElementById("viajeros").value,
-      fecha: document.getElementById("fecha").value,
-      dias: document.getElementById("dias").value,
-      servicios: document.getElementById("servicio").value,
-      aceptawsp: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
-    };
+  e.preventDefault();
 
-    fetch("https://sheetdb.io/api/v1/qptfxxml1qz1y", { 
-      method: "POST",
-      body: JSON.stringify(datos),
-      headers: { "Content-Type": "application/json" }
-    })
-    .then(r => r.json())
-    .then(data => console.log("Guardado en SheetDB:", data))
-    .catch(err => console.error("Error:", err));
+  const now = new Date();
+  const fechaEnvio = now.toLocaleString("es-MX", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  });
 
-    const texto = `¡Hola! Quiero un viaje con estos detalles:
+  const datos = {
+    fecha_envio: fechaEnvio,
+    nombre: document.getElementById("nombre").value,
+    telefono: document.getElementById("telefono").value,
+    aliado: document.getElementById("aliado").value,
+    origen: document.getElementById("origen").value,
+    destino: document.getElementById("destino").value,
+    viajeros: document.getElementById("viajeros").value,
+    fecha: document.getElementById("fecha").value,
+    dias: document.getElementById("dias").value,
+    servicios: document.getElementById("servicio").value,
+    aceptawsp: document.getElementById("aceptoWsp").checked ? "Sí" : "No"
+  };
+
+  fetch("https://sheetdb.io/api/v1/qptfxxml1qz1y", {
+    method: "POST",
+    body: JSON.stringify(datos),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(r => r.json())
+  .then(data => console.log("Guardado en SheetDB:", data))
+  .catch(err => console.error("Error:", err));
+
+  const texto = `¡Hola! Quiero un viaje con estos detalles:
 Nombre: ${datos.nombre}
 WhatsApp: ${datos.telefono}
 Origen: ${datos.origen}
@@ -317,15 +329,15 @@ Destino: ${datos.destino}
 Viajeros: ${datos.viajeros}
 Fecha del viaje: ${datos.fecha}
 Días en el destino: ${datos.dias}
-Planes: ${datos.servicio}
-¿Acepta info por WhatsApp?: ${datos.aceptaWsp}`;
+Planes: ${datos.servicios}
+¿Acepta info por WhatsApp?: ${datos.aceptawsp}`;
 
-    const mensajeCodificado = encodeURIComponent(texto).replace(/%0A/g, '%0D%0A');
-    const numeroWhatsApp = "5215569622506";
-    const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensajeCodificado}`;
+  const mensajeCodificado = encodeURIComponent(texto).replace(/%0A/g, '%0D%0A');
+  const numeroWhatsApp = "5215569622506";
+  const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensajeCodificado}`;
 
-    window.location.href = url;
-  });
+  window.location.href = url;
+});
 </script>
 
 
